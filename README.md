@@ -17,6 +17,15 @@ Remarkably Hall effect problems can be modelled by
 
 * Save the required functions in the browser or on your local machine and execute a function by typing its name into the command prompt. As long all functions a given function calls are in the same folder it should work.
 
+
+## Very brief summary of the problem
+
+
+<p align="center">
+<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/Equation1.svg" width=100" alt="Equation 1"> 
+</p>
+
+
 ## Example 1: Square Lattice
 
 We uttilise MATLAB's powerful linear algebra libraries and solve our problem with very few lines of code.

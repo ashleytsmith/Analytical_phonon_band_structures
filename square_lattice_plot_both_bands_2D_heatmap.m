@@ -6,7 +6,7 @@ for k=1:2
    [X,Y]=meshgrid(-W*pi:pi/N:W*pi); f=zeros(2*W*N+1);
     for i=1:2*W*N+1
         for j=1:2*W*N+1
-            f(i,j)=square_lattice_solve_phonon_band_structure(X(i,j),Y(i,j),k);
+            f(i,j)=square_lattice_solve_phonon_band_structure(X(i,j),Y(i,j),k); 
         end
     end
 surf(X,Y,f,'EdgeColor','None');

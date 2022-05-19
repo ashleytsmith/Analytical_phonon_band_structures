@@ -13,13 +13,13 @@ Remarkably Hall effect problems can be modelled by
 
 * Request a license for MATLAB which is free for academics or offers a trial for individuals.
 
-* You can either test MATLAB online in the browser or follow the graphical install process. Only the standard libraries are needed for this project.
+* You can either test MATLAB online in the browser or follow the graphical install process. It is also possible to use MATLAB  together with a Jupeyter notebook. Only the standard libraries are needed for this project.
 
 * Save the required functions in the browser or on your local machine and execute a function by typing its name into the command prompt. As long all functions a given function calls are in the same folder it should work.
 
 ## Example 1: Square Lattice
 
-We uttilise MATLABs powerful linear algebra libraries and solve our problem with very few lines of code.
+We uttilise MATLAB's powerful linear algebra libraries and solve our problem with very few lines of code.
 
 ```
 function f=square_lattice_solve_phonon_band_structure(kx,ky,l)

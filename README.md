@@ -26,7 +26,7 @@ $$M \omega^2\boldsymbol{\epsilon}=D(\mathbf{k})\boldsymbol{\epsilon}$$
 $$D(\mathbf{k})=\sum_{\textbf{R}} D(\mathbf{ R})e^{-i\mathbf{k} \cdot \mathbf{R}}$$
 
 $D(\mathbf{k})$ is a $nd\times nd$ matrix. Where $n$ is the number of atoms in a unit cell and $d$ is the spatial dimension.
-It repesents th coupling between the atoms. The eigenvectors $\boldsymbol{\epsilon}$ are indexed by $\sigma$ which runs from 1 to $nd$. They are normal modes with frequency $\omega_\sigma$. Being normal modes the motion of the system can always be expressed as a superposition of them and they are orthonormal. The eigenvalue equation above can be solved at each $\mathbf{k}$ point. The band structure ($\omega_\sigma$ as a function of $\mathbf{k}$) is found by doing this for many $\mathbf{k}$ points.
+It repesents th coupling between the atoms. The eigenvectors $\boldsymbol{\epsilon}$ are indexed by $\sigma$ which runs from 1 to $nd$. They are normal modes with frequency $\omega_\sigma$. Being normal modes the motion of the system can always be expressed as a superposition of them and they are orthonormal. The eigenvalue equation above can be solved at each $\mathbf{k}$ point. The band structure ($\omega_\sigma$ as a function of $\mathbf{k}$) is found by doing this for many $\mathbf{k}$ points. M is the mass which will be taken as a constant here but could of course vary for different atoms types.
 
 
 ## Example 1: Square Lattice

@@ -2,8 +2,7 @@
 
 ## Overview
 
-This project explores Phonon band structures using semi-classical physics. It is based upon my Masters thesis where I modelled the Phonon Hall Effect.
-Remarkably Hall effect problems can be modelled by 
+This project explores Phonon band structures using semi-classical physics. It is based upon my Masters thesis where I modelled the Phonon Hall Effect. Remarkably Hall effect problems can be modelled by 
 
 * Assuming fictitious spring forces between the atoms.
 * Solving eigenvalue problems.
@@ -20,10 +19,14 @@ Remarkably Hall effect problems can be modelled by
 
 ## Very brief summary of the problem
 
+**The standard lattice vibrations problem from solid state physics:**
 
-<p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/Equation1.svg" width=100" alt="Equation 1"> 
-</p>
+$$M \omega^2\boldsymbol{\epsilon}=D(\mathbf{k})\boldsymbol{\epsilon}$$
+
+$$D(\mathbf{k})=\sum_{\textbf{R}} D(\mathbf{ R})e^{-i\mathbf{k} \cdot \mathbf{R}}$$
+
+$D(\mathbf{k})$ is a $nd\times nd$ matrix. Where $n$ is the number of atoms in a unit cell and $d$ is the spatial dimension.
+It repesents th coupling between the atoms. The eigenvectors $\boldsymbol{\epsilon}$ are indexed by $\sigma$ which runs from 1 to $nd$. They are normal modes with frequency $\omega_\sigma$. Being normal modes the motion of the system can always be expressed as a superposition of them and they are orthonormal. The eigenvalue equation above can be solved at each $\mathbf{k}$ point. The band structure ($\omega_\sigma$ as a function of $\mathbf{k}$) is found by doing this for many $\mathbf{k}$ points.
 
 
 ## Example 1: Square Lattice

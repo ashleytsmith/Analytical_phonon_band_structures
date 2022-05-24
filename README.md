@@ -36,7 +36,7 @@ This project explores phonon band structures using semi-classical physics. It is
 
 **How to solve;**
 
-To solve for the phonon band structure all we need to do is construct the dynamical matrix which is shown in the first code snippet and then solve the eigenvalue equation which can be done rather easily in MATLAB using the second code snippet.
+To solve for the phonon band structure all we need to do is construct the dynamical matrix which is shown in the first code snippet and then solve the eigenvalue equation which can be done rather easily in MATLAB using the second code snippet. 
 
 Construct the dynamical matrix:
 
@@ -47,7 +47,7 @@ function Dk=square_lattice_construct_dynamical_matrix(kx,ky)
 
 k=1;   % spring constant
 decay_factor = 1;   % give further away neighbours a different weight when desired
-Kx=[k,0;0,k/4];   % spring constant matrix, longditudinal spring constant is 4 times larger than transverse
+Kx=[k,0;0,k/4];   % spring constant matrix, longitudinal spring constant is 4 times larger than transverse
 
 % nearest neighbour terms
 
@@ -98,7 +98,9 @@ eigenValues=abs(eigenValues); % make sure only real part is returned
 
 **Understanding the solution;**
 
-For the square lattice there will be two bands. The x any y axis are the values of k_x and k_y which run between -pi and pi.
+Choices made:
+
+To keep things simple I chose k=1 and normalised the solution so that the max value of the top band is 1. This is a nice choice because later if we choose to do something like add a field the size of the effect observed can easily compared to how stiff our springs are. I used a rough rule of thumb which comes from experimental observations that the longitudinal spring constant is 4 times larger than transverse, as the problem is very symmetric here the couplings cancel out in such a way that this assumption doesn't matter. Lastly, I didn't scale how the couplings fall off with distance and in this case I found that simply dividing by the inverse of the distance did not significantly impact the result.
 
 <p align="center">
 <img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice_heat_map.svg" width="400" alt="heat map of 2 bands for square lattice"> 
@@ -107,3 +109,7 @@ For the square lattice there will be two bands. The x any y axis are the values 
 <p align="center">
 <img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice_2D_slice.svg" width="400" alt="slice across both bands"> 
 </p>
+
+Comments:
+
+Firstly, we can see both eigenvalues are zero at k=(0,0). This is because at k=(0,0) the dynamical matrix becomes a constant multiplied by the identity matrix so the eigenvalue has to be zero. We can also expect that at the edges of the Brillouin zone the solutions on either side must match up due to Born-von Karmen boundary conditions. Lastly we can see the first band is more square and the second more spherical which means nearest neighbour contributions are likely dominating for this band.

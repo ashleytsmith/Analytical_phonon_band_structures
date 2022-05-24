@@ -4,7 +4,7 @@ function Dk=square_lattice_construct_dynamical_matrix(kx,ky)
 
 k=1;   % spring constant
 decay_factor = 1;   % give further away neighbours a different weight when desired
-Kx=[k,0;0,k/4];   % spring constant matrix, longditudinal spring constant is 4 times larger than transverse
+Kx=[k,0;0,k/4];   % spring constant matrix, longitudinal spring constant is 4 times larger than transverse
 
 % nearest neighbour terms
 

@@ -7,7 +7,7 @@ function square_lattice_plot_a_2D_slice(h,varargin)
 
 if nargin == 0
 
-    isField = false;   %specifiying whether we want to solve with or without a field
+    isField = false;   % specifiying whether we want to solve with or without a field
 
 end
 
@@ -26,7 +26,7 @@ end
 
 % plotting variables
 
-N=50;  % number of grid points
+N=200;  % number of grid points
 W=sqrt(2);     % width of axis
 
 % calculate the band structure at every point along a 2 dimensional slice
@@ -43,12 +43,12 @@ band2WithField=zeros(1,N+1);
 
         for j=1:N+1
 
-            eigenValues=square_lattice_solve_phonon_band_structure(x(j),y(j));    % case without a field
+            eigenValues=square_lattice_with_constant_field_solve_phonon_band_structure(x(j),y(j),0);    % case without a field
 
             band1(j) = eigenValues(1);
             band2(j) = eigenValues(2); 
 
-            if isField                                                            % case with a field
+            if isField                                                                                  % case with a field
 
                 eigenValuesWithField=square_lattice_with_constant_field_solve_phonon_band_structure(x(j),y(j),h);
            
@@ -61,13 +61,16 @@ band2WithField=zeros(1,N+1);
 
 % normalise the results
 
-band1 = band1 / max(band2);
-band2 = band2 /max(band2);
+maximum_no_field = max(band2);
+maximum_with_field = max(band2WithField);
+
+band1 = band1 / maximum_no_field;
+band2 = band2 / maximum_no_field;
 
 if isField     % normalise relative to the no field case
 
-    band1WithField = band1WithField / max(band2);
-    band2WithField = band2WithField / max(band2);
+    band1WithField = band1WithField / maximum_no_field;
+    band2WithField = band2WithField / maximum_no_field;
 
     band1 = band1WithField;
     band2 = band2WithField;
@@ -75,8 +78,6 @@ if isField     % normalise relative to the no field case
 end
 
 bands = {band1,band2}; % put the bands into a list
-
-disp(max(band2))
 
 %plot a 2 dimensional slice
 

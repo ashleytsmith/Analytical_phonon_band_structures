@@ -11,6 +11,8 @@
 
 \begin{document}
 
+%% no field case
+
 Formulate the problem like this:
 \begin{equation}
 U_{harm}=\frac{1}{2}\sum_ {\mathbf{R,R'},u,v}^{}\mathbf{u}_u(\mathbf{R})D_{uv}(\mathbf{R-R'})\mathbf{u}_v(\mathbf{R'}); \label{U}
@@ -32,11 +34,33 @@ M \omega^{2} \mathbf{\epsilon} = D(\mathbf{k})
 \mathbf{\epsilon}
 \end{equation}
 
-
 \vspace{1cm}
 \noindent The potential $U_{harm}$ can be expressed in terms of displacements of atoms from their equilibrium positions $\textbf{u}(\textbf{R})$ and force constant matrices $D(\mathbf{R})$ which give the coupling between the atoms or cells. \noindent $D(\mathbf{k})$ is the $nd\times nd$ matrix we want to construct where $n$ is the number of atoms in a unit cell and $d$ is the spatial dimension. The aim is to solve the eigenvalue problem at each $\mathbf{k}$ point. The band structure ($\omega_\sigma$ as a function of $\mathbf{k}$) is found by doing this for many $\mathbf{k}$ points. The eigenvectors $\mathbf{\epsilon}$ are indexed by $\sigma$ which runs from 1 to $nd$. They are normal modes with frequency $\omega_\sigma$. Being normal modes the motion of the system can always be expressed as a superposition of them and they are orthonormal. $M$ is the mass which will be taken as a constant here but could of course vary for different atoms types.
 
-\end{document}
+\newpage
 
+%field case
+Hamiltonian with a field:
+\begin{equation}
+H  = \frac{1}{2} (\mathbf{p}-{ A } \mathbf{u})^T (\mathbf{p}-{ A }\mathbf{u}) + \frac{1}{2} \mathbf{u}^T D(\mathbf{k}) \mathbf{u}
+\end{equation}
+
+Field term:
+
+\begin{equation} 
+A =\left( \begin{array}{cc} 0 & h \\ 
+-h & 0 \end{array} \right)\;
+\end{equation}
+
+
+
+New eigenvalue problem to solve:
+
+\begin{equation}
+H_{eff}= i\left( \begin{array}{cc} -A & -D(\mathbf{k}) + A^2 \\
+I_{nd} & -A \end{array} \right)
+\end{equation}
+
+\end{document}
 
 

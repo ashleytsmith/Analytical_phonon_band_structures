@@ -3,26 +3,9 @@
 
 function square_lattice_plot_a_2D_slice(h,varargin)
 
-% check input from the user
+% check user input 
 
-if nargin == 0
-
-    isField = false;   % specifiying whether we want to solve with or without a field
-
-end
-
-if nargin == 1 
-
-    isField = true;
-
-end
-
-if nargin > 1
-
-    msg = 'Too many parameters specified.';
-    error(msg)
-
-end
+isField=check_number_of_arguments_from_user(nargin);
 
 % plotting variables
 
@@ -43,12 +26,21 @@ band2WithField=zeros(1,N+1);
 
         for j=1:N+1
 
-            eigenValues=square_lattice_with_constant_field_solve_phonon_band_structure(x(j),y(j),0);    % case without a field
+            if ~isField     % case without a field
 
-            band1(j) = eigenValues(1);
-            band2(j) = eigenValues(2); 
+                eigenValues=square_lattice_solve_phonon_band_structure(x(j),y(j));    
 
-            if isField                                                                                  % case with a field
+                band1(j) = eigenValues(1);
+                band2(j) = eigenValues(2);   
+
+            end
+
+            if isField         % case with a field    
+
+                eigenValues=square_lattice_with_constant_field_solve_phonon_band_structure(x(j),y(j),0);    
+
+                band1(j) = eigenValues(1);
+                band2(j) = eigenValues(2);                                                                  
 
                 eigenValuesWithField=square_lattice_with_constant_field_solve_phonon_band_structure(x(j),y(j),h);
            
@@ -62,22 +54,10 @@ band2WithField=zeros(1,N+1);
 % normalise the results
 
 maximum_no_field = max(band2);
-maximum_with_field = max(band2WithField);
 
-band1 = band1 / maximum_no_field;
-band2 = band2 / maximum_no_field;
+bands = normalise_the_band_structure(band1,band2,band1WithField,band2WithField,maximum_no_field,isField);
 
-if isField     % normalise relative to the no field case
-
-    band1WithField = band1WithField / maximum_no_field;
-    band2WithField = band2WithField / maximum_no_field;
-
-    band1 = band1WithField;
-    band2 = band2WithField;
-
-end
-
-bands = {band1,band2}; % put the bands into a list
+maxValueOfTopBand = max(bands{2});  % max value after normalising
 
 %plot a 2 dimensional slice
 
@@ -92,7 +72,7 @@ for k=1:2
 
 set(gca,'XTick',-3*pi/2:pi/2:3*pi/2)
 set(gca,'XTickLabel',{'$-\frac{3\pi}{2}$','$-\pi$','$-\frac{\pi}{2}$','0','$\frac{\pi}{2}$','$\pi$','$\frac{3\pi}{2}$'},'TickLabelInterpreter','latex')
-set(gca,'YTick',0:max(bands{2}))
+set(gca,'YTick',0:0.5:maxValueOfTopBand)
 
 
 ax = gca;

@@ -132,7 +132,7 @@ Dk=square_lattice_construct_dynamical_matrix(kx,ky); % construct dynamical matri
 B=[0,h;-h,0];   % magnetic field term 
 I= eye(2);      % identity matrix
 
-H=i*[-B,-Dk; I,-B];    %hamiltonian with a field
+H=i*[-B,-Dk; I,-B];    % hamiltonian with a field
 
 e=[0;0;0;0];
 

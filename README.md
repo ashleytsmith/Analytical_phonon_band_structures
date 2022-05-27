@@ -113,3 +113,36 @@ To keep things simple I chose k=1 and normalised the solution so that the max va
 Comments:
 
 Firstly, we can see both eigenvalues are zero at k=(0,0). This is because at k=(0,0) the dynamical matrix becomes a constant multiplied by the identity matrix so the eigenvalue has to be zero. We can also expect that at the edges of the Brillouin zone the solutions on either side must match up due to Born-von Karmen boundary conditions. Lastly we can see the first band is more square and the second more spherical which means nearest neighbour contributions are likely dominating for this band.
+
+## Adding a field
+
+<p align="center">
+<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/adding_a_field_problem_update.png" width="400" alt="latex for the case with a field"> 
+</p>
+
+## Example 2: Square Lattice with a magnetic field
+
+Solving the eigenvalue problem in the presence of a field is also very straightforward and uses the eig() function again.
+
+```
+function eigenValues=square_lattice_with_constant_field_solve_phonon_band_structure(kx,ky,h)
+
+Dk=square_lattice_construct_dynamical_matrix(kx,ky); % construct dynamical matrix just like the non-field case 
+
+B=[0,h;-h,0];   % magnetic field term 
+I= eye(2);      % identity matrix
+
+H=i*[-B,-Dk; I,-B];    %hamiltonian with a field
+
+e=[0;0;0;0];
+
+eigenValues=eig(H); 
+eigenValues=abs(eigenValues); % convert to real absolute values
+eigenValues=sort(eigenValues);
+eigenValues = eigenValues([2,4 :end]); % remove degenerate solutions
+```
+
+<p align="center">
+<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice_changing_field_2D_slice.gif" width="400" alt="slice across both bands with varying field"> 
+</p>
+

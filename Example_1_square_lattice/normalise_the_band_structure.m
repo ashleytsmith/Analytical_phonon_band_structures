@@ -1,20 +1,50 @@
-function [bands, maxValueOfTopBand] = normalise_the_band_structure(band1,band2,band1WithField,band2WithField,maximum_no_field,isField)
+function [bands, maxValueOfTopBand] = normalise_the_band_structure(bands, bandsWithField, Nbands, isField)
 
-band1 = band1 / maximum_no_field;
-band2 = band2 / maximum_no_field;
+    function maxValueOfTopBand = calculateMaxValueOfTopBand(bands)  % nested function which calulates the max value of the top band
 
-if isField     % normalise relative to the no field case
+        input = bands{Nbands};
 
-    band1WithField = band1WithField / maximum_no_field;
-    band2WithField = band2WithField / maximum_no_field;
+        if isvector(input)
 
-    band1 = band1WithField;
-    band2 = band2WithField;
+            maxValueOfTopBand = max(input); 
+
+        end 
+
+        if ismatrix(input)
+
+            maxValueOfTopBand = max(input, [], 'all');
+             
+        end 
+
+    end
+
+maximum_no_field = calculateMaxValueOfTopBand(bands);
+
+if ~isField     % normalise relative to highest value of top band
+
+    for k=1:Nbands
+
+        bands{k} = bands{k} / maximum_no_field;
+                
+    end
+
+    maxValueOfTopBand = 1;
 
 end
 
-bands = {band1,band2}; % put the bands into a list
 
+if isField     % normalise relative to the no field case
 
+    for k=1:Nbands
 
+        bandsWithField{k} = bandsWithField{k} / maximum_no_field;
+                  
+    end
+
+    bands = bandsWithField;
+    maxValueOfTopBand = calculateMaxValueOfTopBand(bands);  % max value after normalising
+
+end
+
+end % closing end statment needed when using nested functions
 

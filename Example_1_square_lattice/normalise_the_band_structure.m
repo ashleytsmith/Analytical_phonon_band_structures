@@ -20,7 +20,7 @@ function [bands, maxValueOfTopBand] = normalise_the_band_structure(bands, bandsW
 
 maximum_no_field = calculateMaxValueOfTopBand(bands);
 
-if ~isField     % normalise relative to highest value of top band
+if ~isField     % normalise relative to highest value of the top band
 
     for k=1:Nbands
 

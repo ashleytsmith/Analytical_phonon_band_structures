@@ -6,8 +6,27 @@ function plot_2D_slice(latticeType,h,varargin)
 
 % plotting variables
 
-N=50;  % number of grid points
-W=sqrt(2);     % width of axis
+N=100;  % number of grid points
+
+if latticeType == 'square_lattice'
+
+    W=sqrt(2);   % width of the axis
+    sliceAlong = pi/4;  % direction to slice along
+    XTicks = -3*pi/2:pi/2:3*pi/2;
+    XTickLabels = {'$-\frac{3\pi}{2}$','$-\pi$','$-\frac{\pi}{2}$','0','$\frac{\pi}{2}$','$\pi$','$\frac{3\pi}{2}$'};
+    Xlabel = '$\mathbf{k}$ (along diagonal)';
+ 
+end
+
+if latticeType == 'kagome_lattice'
+
+    W = 2;   % width of the axis
+    sliceAlong = 0;  % direction to slice along
+    XTicks = -2*pi:pi:2*pi;
+    XTickLabels = {'$-2\pi$','$-\pi$','0','$\pi$', '$-2\pi$'};
+    Xlabel = '$\mathbf{k}$ (along $\mathbf{k_{y}=0}$)';
+  
+end
 
 % check user input and determine the problem to be solved
 
@@ -18,8 +37,8 @@ isField=check_number_of_arguments_from_user(nargin);
 
 X=-W*pi:2*pi*W/N:W*pi;  
 
-x=X*cos(pi/4);     % take a diagonal slice
-y=X*sin(pi/4);
+x=X*cos(sliceAlong);     % take a slice at the given angle
+y=X*sin(sliceAlong);
 
 bands = {};     % empty cell array
 
@@ -76,6 +95,8 @@ end
 
 %plot a 2 dimensional slice
 
+labels = {};    
+
 figure
 
 for k=1:Nbands
@@ -83,18 +104,23 @@ for k=1:Nbands
     plot(X,bands{k})
     hold on
 
+    text = ['\sigma = ' num2str(k)];
+    labels{k} = text;
+
     end
 
-set(gca,'XTick',-3*pi/2:pi/2:3*pi/2)
-set(gca,'XTickLabel',{'$-\frac{3\pi}{2}$','$-\pi$','$-\frac{\pi}{2}$','0','$\frac{\pi}{2}$','$\pi$','$\frac{3\pi}{2}$'},'TickLabelInterpreter','latex')
+set(gca,'XTick',XTicks)
+set(gca,'XTickLabel',XTickLabels,'TickLabelInterpreter','latex')
 set(gca,'YTick',0:0.5:maxValueOfTopBand)
 
 
 ax = gca;
 ax.FontSize = 12;
-xlabel('$\mathbf{k}$ (along diagonal)','Interpreter','latex')
+xlabel(Xlabel,'Interpreter','latex')
 ylabel('$\omega_\sigma$ (arbitrary units)','Interpreter','latex')
-legend({'\sigma = 1','\sigma = 2'},'Location','southwest')
+
+
+legend(labels,'Location','southwest')
 
 if isField
 

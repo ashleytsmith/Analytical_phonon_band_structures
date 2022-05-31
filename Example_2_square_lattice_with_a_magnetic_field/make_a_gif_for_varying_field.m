@@ -4,7 +4,7 @@ function make_a_gif_for_varying_field(latticeType, plottingScript)
 
 numberOfFramesInOneSequence = 50; 
 terminalDelay = 10;   % delay at the start and end of the gif
-maxFieldValue = 2;  
+maxFieldValue = 1;  
 scaleColorbars = false;
 
 % make output file based of name of plotting script

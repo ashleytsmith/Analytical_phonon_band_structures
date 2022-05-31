@@ -7,8 +7,6 @@ I= eye(2);      % identity matrix
 
 H=i*[-B,-(h*h*I+Dk); I,-B];    % hamiltonian with a field
 
-e=[0;0;0;0];
-
 eigenValues=eig(H); 
 eigenValues=abs(eigenValues); % convert to real absolute values
 eigenValues=sort(eigenValues);

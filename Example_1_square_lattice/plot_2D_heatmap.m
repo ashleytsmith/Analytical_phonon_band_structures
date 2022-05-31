@@ -2,9 +2,29 @@ function plot_2D_heatmap(latticeType,h,varargin)
 
 % plotting variables
 
- N=50;  % number of grid points
- W=1;   % width of the axis
- scaleColorbars = false;
+N=50;  % number of grid points
+scaleColorbars = false;
+
+if latticeType == 'square_lattice'
+
+    W=1;   % width of the axis
+    rowsInPlot = 1;
+    columnsInPlot = 2;
+    AxisTicks = -pi:pi/2:pi; 
+    AxisTickLabels = {'$-\pi$','$-\frac{\pi}{2}$','0','$\frac{\pi}{2}$','$\pi$'};
+
+end
+
+if latticeType == 'kagome_lattice'
+
+    W = 2;   % width of the axis
+    rowsInPlot = 2;
+    columnsInPlot = 3;
+    AxisTicks = -2*pi:pi:2*pi; 
+    AxisTickLabels = {'$-2\pi$','$-\pi$','0','$\pi$', '$-2\pi$'};
+   
+
+end
 
 % check user input and determine problem to solve
 
@@ -13,13 +33,13 @@ isField=check_number_of_arguments_from_user(nargin);
 
 % set up before solving
 
-[X,Y]=meshgrid(-W*pi:pi/N:W*pi);
+[X,Y]=meshgrid(-W*pi:W*pi/N:W*pi);
 
 bands = {};     % empty cell array
 
 for k=1:Nbands  
 
-    emptyBand = zeros(2*W*N+1);   
+    emptyBand = zeros(2*N+1);   
     bands{k} = emptyBand;                
     bandsWithField{k} = emptyBand;   % cell array of empty bands
 
@@ -27,9 +47,9 @@ end
 
 % calculate the band structure at every point on the grid
 
-for i=1:2*W*N+1
+for i=1:2*N+1
 
-    for j=1:2*W*N+1
+    for j=1:2*N+1
 
         if ~isField     % case without a field
 
@@ -83,12 +103,11 @@ colormap jet;
 cold = 0;                   % manual values supplied to the color map
 hot = maxValueOfTopBand;
 
-tiles = tiledlayout(1,2);
+tiles = tiledlayout(rowsInPlot,columnsInPlot);
 tiles.TileSpacing = 'compact';
 
 for k=1:Nbands
 
-    %subplot(1,2,k);
     nexttile
     
     surf(X,Y,bands{k},'EdgeColor','None');      % setting edge color to none removes the grid lines
@@ -107,11 +126,15 @@ for k=1:Nbands
     xlabel('$\mathbf{k_x}$','Interpreter','latex')
     ylabel('$\mathbf{k_y}$','Interpreter','latex')
 
-    set(gca,'XTick',-pi:pi/2:pi)
-    set(gca,'XTickLabel',{'$-\pi$','$-\frac{\pi}{2}$','0','$\frac{\pi}{2}$','$\pi$'},'TickLabelInterpreter','latex')
-    set(gca,'YTick',-pi:pi/2:pi)
-    set(gca,'YTickLabel',{'$-\pi$','$-\frac{\pi}{2}$','0','$\frac{\pi}{2}$','$\pi$'},'TickLabelInterpreter','latex')
     
+    set(gca,'XTick',AxisTicks)
+    set(gca,'XTickLabel', AxisTickLabels,'TickLabelInterpreter','latex')
+    set(gca,'YTick',AxisTicks)
+    set(gca,'YTickLabel', AxisTickLabels,'TickLabelInterpreter','latex')
+    
+    text = ['\sigma = ' num2str(k)];
+    title(text)
+
     end
 
 sgtitle('$\omega_\sigma$ (arbitrary units)','Interpreter','latex')

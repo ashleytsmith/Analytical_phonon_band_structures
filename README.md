@@ -14,8 +14,7 @@ This project explores phonon band structures using semi-classical physics. It is
 
 * You can either test MATLAB online in the browser or follow the graphical install process. It is also possible to use MATLAB  together with a Jupeyter notebook. Only the standard libraries are needed for this project.
 
-* Save the required functions in the browser or on your local machine and execute a function by typing its name into the command prompt. As long all functions a given function calls are in the same folder it should work.
-
+* Save the required functions in the browser or on your local machine and execute a function by typing its name into the command prompt. For example, make_a_gif_for_varying_field( 'square_lattice', @plot_2D_slice) executes make_a_gif_for_varying_field.m passing in the string 'square_lattice' and the function handle @plot_2D_slice.  All functions a given function calls need to be in the same folders or you need to tell MATLAB how to find them with addpath.
 
 ## Very brief summary of the problem
 
@@ -28,7 +27,7 @@ This project explores phonon band structures using semi-classical physics. It is
 
 ## Example 1: Square Lattice
 
-** Illustration of the Square Lattice;**
+**Illustration of the Square Lattice;**
 
 <p align="center">
 <img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice.png" width="400" alt="diagram of the square lattice"> 
@@ -124,9 +123,12 @@ Firstly, we can see both eigenvalues are zero at k=(0,0). This is because at k=(
 <img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/adding_a_field_problem_update.png" width="400" alt="latex for the case with a field"> 
 </p>
 
+Its possible to prove the result above by computing Hamilton’s equations and using Bloch's theorem.	 We end up with a non-Hermitian eigenvalue problem where the system to solve is twice the size but with the extra solutions being degenerate.
+
+
 ## Example 2: Square Lattice with a magnetic field
 
-Solving the eigenvalue problem in the presence of a field is also very straightforward and uses the eig() function again.
+Solving the eigenvalue problem in the presence of a field is still very straightforward and uses the eig() function again.
 
 ```
 function eigenValues=square_lattice_with_constant_field_solve_phonon_band_structure(kx,ky,h)
@@ -137,8 +139,6 @@ B=[0,h;-h,0];   % magnetic field term
 I= eye(2);      % identity matrix
 
 H=i*[-B,-Dk; I,-B];    % hamiltonian with a field
-
-e=[0;0;0;0];
 
 eigenValues=eig(H); 
 eigenValues=abs(eigenValues); % convert to real absolute values

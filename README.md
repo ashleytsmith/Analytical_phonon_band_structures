@@ -28,10 +28,14 @@ This project explores phonon band structures using semi-classical physics. It is
 
 ## Example 1: Square Lattice
 
-**Diagram of the Square Lattice;**
+** Illustration of the Square Lattice;**
 
 <p align="center">
 <img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice.png" width="400" alt="diagram of the square lattice"> 
+</p>
+
+<p align="center">
+<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice_potential.png" width="400" alt="potential for the square lattice"> 
 </p>
 
 **How to solve;**
@@ -144,5 +148,17 @@ eigenValues = eigenValues([2,4 :end]); % remove degenerate solutions
 
 <p align="center">
 <img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice_changing_field_2D_slice.gif" width="400" alt="slice across both bands with varying field"> 
+</p>
+
+## Example 3: The kagome lattice with a magnetic field
+
+** Illustration of the Kagome Lattice;**
+
+<p align="center">
+<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/kagome_lattice.png" width="400" alt="diagram of the kagome lattice"> 
+</p>
+
+<p align="center">
+<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/kagome_lattice_potential.png" width="400" alt="potential for the kagome lattice"> 
 </p>
 

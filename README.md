@@ -150,7 +150,13 @@ eigenValues = eigenValues([2,4 :end]); % remove degenerate solutions
 <img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice_changing_field_2D_slice.gif" width="400" alt="slice across both bands with varying field"> 
 </p>
 
-## Example 3: The kagome lattice with a magnetic field
+Comments:
+
+Everything is normalized relative to the no field case so from the height of the bands it’s easy to see how big the effect of the field is in comparison. Turning on the field causes the bands to separate with the top band increasing in energy and the bottom band flattening. 
+
+
+
+## Example 3: The Kagome lattice with a magnetic field
 
 ** Illustration of the Kagome Lattice;**
 
@@ -163,7 +169,7 @@ eigenValues = eigenValues([2,4 :end]); % remove degenerate solutions
 </p>
 
 
-**Solution for the kagome lattice;**
+**Solution for the Kagome lattice;**
 
 <p align="center">
 <img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/kagome_lattice_changing_field_2D_slice.gif" width="400" alt="slice across the bands for the kagome lattice"> 
@@ -173,4 +179,8 @@ eigenValues = eigenValues([2,4 :end]); % remove degenerate solutions
 <img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/kagome_lattice_changing_field_2D_heatmap.gif" width="400" alt="heat map of the bands for kagome lattice"> 
 </p>
 
+Comments:
 
+There many cases where the bands either touch or cross with changing magnetic field, for example, one of easiest crossing events to see is at the origin when the field turns on. 3-fold and 6-fold symmetric structures appear and disappear as the field moves up and down, particularly for the middle four bands. 
+
+Turning on the field is said to ‘lift’ the degeneracy. Many macroscopic physical effects can be captured by crossing of the bands in the band structure related to that particular problem. Its commonly reported that the Square lattice does not exhibit large Phonon Hall currents whereas the Kagome lattice does. This is likely correlated with the Kagome lattice possessing many clear band crossings when compared with the Square lattice.

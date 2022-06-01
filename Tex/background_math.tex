@@ -4,6 +4,7 @@
 \usepackage[left=0.5in,right=0.5in,top=0.5in,bottom=0.5in]{geometry}
 
 \pagenumbering{gobble}
+\usepackage{amsmath}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%Document
@@ -59,6 +60,80 @@ New eigenvalue problem to solve:
 \begin{equation}
 H_{eff}= i\left( \begin{array}{cc} -A & -D(\mathbf{k}) + A^2 \\
 I_{nd} & -A \end{array} \right)
+\end{equation}
+
+\newpage
+
+% square lattice potential
+
+\begin{equation}
+ \begin{aligned}
+U_{harm} = \newline
+\frac{1}{2}(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_1))
+K(\mathbf{R}_0-\mathbf{R}_1)
+(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_1))\quad + \\
+\frac{1}{2}(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_2))
+K(\mathbf{R}_0-\mathbf{R}_2)
+(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_2))\quad +  \\
+\frac{1}{2}(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_3))
+K(\mathbf{R}_0-\mathbf{R}_3)
+(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_3))\quad +  \\
+\frac{1}{2}(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_4))
+K(\mathbf{R}_0-\mathbf{R}_4)
+(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_4))\quad +  \\
+\frac{1}{2}(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_5))
+K(\mathbf{R}_0-\mathbf{R}_5)
+(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_5))\quad +  \\
+\frac{1}{2}(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_6))
+K(\mathbf{R}_0-\mathbf{R}_6)
+(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_6))\quad +  \\
+\frac{1}{2}(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_7))
+K(\mathbf{R}_0-\mathbf{R}_7)
+(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_7))\quad +  \\
+\frac{1}{2}(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_8))
+K(\mathbf{R}_0-\mathbf{R}_8)
+(\mathbf{u}(\mathbf{R}_0) - \mathbf{u}(\mathbf{R}_8))\quad \;\;\;  \\
+\end{aligned} \nonumber
+\end{equation}
+
+
+
+\newpage
+
+% kagome lattice potential
+
+\begin{equation}
+ \begin{aligned}
+U_{harm} = \newline
+\frac{1}{2}(\mathbf{u}_2(\mathbf{R}_0) - \mathbf{u}_1(\mathbf{R}_1))
+K(\mathbf{R}_0-\mathbf{R}_1)
+(\mathbf{u}_2(\mathbf{R}_0) - \mathbf{u}_1(\mathbf{R}_1))\quad + \\
+\frac{1}{2}(\mathbf{u}_3(\mathbf{R}_0) - \mathbf{u}_1(\mathbf{R}_2))
+K(\mathbf{R}_0-\mathbf{R}_2)
+(\mathbf{u}_3(\mathbf{R}_0) - \mathbf{u}_1(\mathbf{R}_2))\quad + \\
+\frac{1}{2}(\mathbf{u}_3(\mathbf{R}_0) - \mathbf{u}_2(\mathbf{R}_3))
+K(\mathbf{R}_0-\mathbf{R}_3)
+(\mathbf{u}_3(\mathbf{R}_0) - \mathbf{u}_2(\mathbf{R}_3))\quad + \\
+\frac{1}{2}(\mathbf{u}_1(\mathbf{R}_0) - \mathbf{u}_2(\mathbf{R}_4))
+K(\mathbf{R}_0-\mathbf{R}_4)
+(\mathbf{u}_1(\mathbf{R}_0) - \mathbf{u}_2(\mathbf{R}_4))\quad + \\
+\frac{1}{2}(\mathbf{u}_1(\mathbf{R}_0) - \mathbf{u}_3(\mathbf{R}_5))
+K(\mathbf{R}_0-\mathbf{R}_5)
+(\mathbf{u}_1(\mathbf{R}_0) - \mathbf{u}_3(\mathbf{R}_5))\quad + \\
+\frac{1}{2}(\mathbf{u}_2(\mathbf{R}_0) - \mathbf{u}_3(\mathbf{R}_6))
+K(\mathbf{R}_0-\mathbf{R}_6)
+(\mathbf{u}_2(\mathbf{R}_0) - \mathbf{u}_3(\mathbf{R}_6))\quad + \\
+\\
+\frac{1}{2}(\mathbf{u}_1(\mathbf{R}_0) - \mathbf{u}_2(\mathbf{R}_0))
+K(\mathbf{R}_{01}-\mathbf{R}_{02})
+(\mathbf{u}_1(\mathbf{R}_0) - \mathbf{u}_2(\mathbf{R}_0))\; + \\
+\frac{1}{2}(\mathbf{u}_2(\mathbf{R}_0) - \mathbf{u}_3(\mathbf{R}_0))
+K(\mathbf{R}_{02}-\mathbf{R}_{03})
+(\mathbf{u}_2(\mathbf{R}_0) - \mathbf{u}_3(\mathbf{R}_0))\; + \\
+\frac{1}{2}(\mathbf{u}_3(\mathbf{R}_0) - \mathbf{u}_1(\mathbf{R}_0))
+K(\mathbf{R}_{03}-\mathbf{R}_{01})
+(\mathbf{u}_3(\mathbf{R}_0) - \mathbf{u}_1(\mathbf{R}_0))\;\;\;\ \\
+\end{aligned} \nonumber
 \end{equation}
 
 \end{document}

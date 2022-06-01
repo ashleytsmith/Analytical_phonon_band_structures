@@ -22,7 +22,7 @@ D8=decay_factor*rotate_2D_matrix(D1,7*pi/4);
 
 % on site term
 
-D0 = D1 + D2 + D3 + D4 + D5 + D6 + D7 + D8;
+D0 = D1 + D2 + D3 + D4 + D5 + D6 + D7 + D8;        % comes from contributions from the (u(R_0))^2 terms
 D0 = - D0;
 D0 = diag(diag(D0));  % Only take diagonal elements
 

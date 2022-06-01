@@ -41,8 +41,8 @@ D6=[O,O,O;
 
 % on site term
 
-D0 = D1 + D2 + D3 + D4 + D5 + D6 - ...
-   2*[D01+D02,O,O;
+D0 = D1 + D2 + D3 + D4 + D5 + D6 - ...      % corresponds to terms like 2 * DO1 * u_2(R_0) * u_1 (R_0)
+   2*[D01+D02,O,O;                          % contributions from the (u_x(R_0))^2 terms from both onsite and neigbour coupling
       O,D01+D03,O;
       O,O,D02+D03];
 

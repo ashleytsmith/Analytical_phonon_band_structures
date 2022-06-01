@@ -146,19 +146,25 @@ eigenValues=sort(eigenValues);
 eigenValues = eigenValues([2,4 :end]); % remove degenerate solutions
 ```
 
+Choices made:
+
+
+Everything is normalized relative to the no field case so from the height of the bands it’s easy to see how big the effect of the field is in comparison. 
+
 <p align="center">
 <img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice_changing_field_2D_slice.gif" width="400" alt="slice across both bands with varying field"> 
 </p>
 
 Comments:
 
-Everything is normalized relative to the no field case so from the height of the bands it’s easy to see how big the effect of the field is in comparison. Turning on the field causes the bands to separate with the top band increasing in energy and the bottom band flattening. 
+Turning on the field causes the bands to separate with the top band increasing in energy and the bottom band flattening. 
+The field is said to break the symettry and ‘lift’ the degeneracies which occur at the origin and at the edges of the Brillouin zone.
 
 
 
 ## Example 3: The Kagome lattice with a magnetic field
 
-** Illustration of the Kagome Lattice;**
+**Illustration of the Kagome Lattice:**
 
 <p align="center">
 <img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/kagome_lattice.png" width="400" alt="diagram of the kagome lattice"> 
@@ -183,4 +189,13 @@ Comments:
 
 There many cases where the bands either touch or cross with changing magnetic field, for example, one of easiest crossing events to see is at the origin when the field turns on. 3-fold and 6-fold symmetric structures appear and disappear as the field moves up and down, particularly for the middle four bands. 
 
-Turning on the field is said to ‘lift’ the degeneracy. Many macroscopic physical effects can be captured by crossing of the bands in the band structure related to that particular problem. Its commonly reported that the Square lattice does not exhibit large Phonon Hall currents whereas the Kagome lattice does. This is likely correlated with the Kagome lattice possessing many clear band crossings when compared with the Square lattice.
+Many macroscopic physical effects can be captured by crossing of the bands in the band structure related to that particular problem. Its commonly reported that the Square lattice does not exhibit large Phonon Hall currents whereas the Kagome lattice does. This is likely correlated with the Kagome lattice possessing many clear band crossings when compared with the Square lattice.
+
+
+
+# Extension ideas
+
+A nice way to extend this project would be to do the calculation for another lattice, something like graphene which is known for having novel physical and chemical properties would be a great choice. The scripts for the solver and the dynamical matrix would need to be written and minor edits would need to be made to the plotting scripts.  Working out the force constant matrices would likely be the most difficult part because as it’s really easy to make a silly slip when you do it the first few times, luckily however this will often reflect itself in the solution indicating something needs to be changed.
+
+A more advanced extension would be to explore some topological properties e.g. Berry curvatures, Berry phases and Chern numbers and to work out the Phonon Hall current. Another movie but this time with the Berry curvature changing with magnetic field could look really good. 
+

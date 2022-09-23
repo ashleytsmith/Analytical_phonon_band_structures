@@ -1,4 +1,4 @@
-# Analytical_phonon_band_structures
+# Analytical Phonon Band Structures
 ## Overview
 
 This project explores phonon band structures using semi-classical physics. It is repeat of some of the calculations from my Master's thesis where I modelled the Phonon Hall Effect. Remarkably Hall effect problems can be modelled by 

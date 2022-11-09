@@ -20,23 +20,23 @@ This project explores phonon band structures using semi-classical physics. It is
 **The standard lattice vibrations problem from solid state physics:**
 
 <p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/quick_problem_summary.png" width="400" alt="see tex file if image doesn't show"> 
+<img src="https://github.com/ashleytsmith/Analytical_phonon_band_structures/blob/main/Images/quick_problem_summary.png" width="400" alt="see tex file if image doesn't show"> 
 </p>
 
 
 ## Example 1: Square Lattice
 
-**Illustration of the Square Lattice;**
+**Illustration of the Square Lattice:**
 
 <p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice.png" width="400" alt="diagram of the square lattice"> 
+<img src="https://github.com/ashleytsmith/Analytical_phonon_band_structures/blob/main/Images/square_lattice.png" width="400" alt="diagram of the square lattice"> 
 </p>
 
 <p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice_potential.png" width="400" alt="potential for the square lattice"> 
+<img src="https://github.com/ashleytsmith/Analytical_phonon_band_structures/blob/main/Images/square_lattice_potential.png" width="400" alt="potential for the square lattice"> 
 </p>
 
-**How to solve;**
+**How to solve:**
 
 To solve for the phonon band structure all we need to do is construct the dynamical matrix which is shown in the first code snippet and then solve the eigenvalue equation which can be done rather easily in MATLAB using the second code snippet. 
 
@@ -98,18 +98,18 @@ eigenValues=sort(eigenValues);
 eigenValues=abs(eigenValues); % make sure only real part is returned
 ```
 
-**Understanding the solution;**
+**Understanding the solution:**
 
 Choices made:
 
 To keep things simple I chose k=1 and normalised the solution so that the max value of the top band is 1. This is a nice choice because later if we choose to do something like add a field the size of the effect observed can easily compared to how stiff our springs are. I used a rough rule of thumb which comes from experimental observations that the longitudinal spring constant is 4 times larger than transverse, as the problem is very symmetric here the couplings cancel out in such a way that this assumption doesn't matter. Lastly, I didn't scale how the couplings fall off with distance and in this case I found that simply dividing by the inverse of the distance did not significantly impact the result.
 
 <p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice_heat_map.svg" width="400" alt="heat map of 2 bands for square lattice"> 
+<img src="https://github.com/ashleytsmith/Analytical_phonon_band_structures/blob/main/Images/square_lattice_heat_map.svg" width="400" alt="heat map of 2 bands for square lattice"> 
 </p>
 
 <p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice_2D_slice.svg" width="400" alt="slice across both bands"> 
+<img src="https://github.com/ashleytsmith/Analytical_phonon_band_structures/blob/main/Images/square_lattice_2D_slice.svg" width="400" alt="slice across both bands"> 
 </p>
 
 Comments:
@@ -119,7 +119,7 @@ Firstly, we can see both eigenvalues are zero at k=(0,0). This is because at k=(
 ## Adding a field
 
 <p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/adding_a_field_problem_update.png" width="400" alt="latex for the case with a field"> 
+<img src="https://github.com/ashleytsmith/Analytical_phonon_band_structures/blob/main/Images/adding_a_field_problem_update.png" width="400" alt="latex for the case with a field"> 
 </p>
 
 Its possible to prove the result above by computing Hamilton’s equations and using Bloch's theorem.	 We end up with a non-Hermitian eigenvalue problem where the system to solve is twice the size but with the extra solutions being degenerate.
@@ -151,7 +151,7 @@ Choices made:
 Everything is normalized relative to the no field case so from the height of the bands it’s easy to see how big the effect of the field is in comparison. 
 
 <p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/square_lattice_changing_field_2D_slice.gif" width="400" alt="slice across both bands with varying field"> 
+<img src="https://github.com/ashleytsmith/Analytical_phonon_band_structures/blob/main/Images/square_lattice_changing_field_2D_slice.gif" width="400" alt="slice across both bands with varying field"> 
 </p>
 
 Comments:
@@ -166,22 +166,22 @@ The field is said to break the symettry and ‘lift’ the degeneracies which oc
 **Illustration of the Kagome Lattice:**
 
 <p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/kagome_lattice.png" width="400" alt="diagram of the kagome lattice"> 
+<img src="https://github.com/ashleytsmith/Analytical_phonon_band_structures/blob/main/Images/kagome_lattice.png" width="400" alt="diagram of the kagome lattice"> 
 </p>
 
 <p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/kagome_lattice_potential.png" width="400" alt="potential for the kagome lattice"> 
+<img src="https://github.com/ashleytsmith/Analytical_phonon_band_structures/blob/main/Images/kagome_lattice_potential.png" width="400" alt="potential for the kagome lattice"> 
 </p>
 
 
-**Solution for the Kagome lattice;**
+**Solution for the Kagome lattice:**
 
 <p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/kagome_lattice_changing_field_2D_slice.gif" width="400" alt="slice across the bands for the kagome lattice"> 
+<img src="https://github.com/ashleytsmith/Analytical_phonon_band_structures/blob/main/Images/kagome_lattice_changing_field_2D_slice.gif" width="400" alt="slice across the bands for the kagome lattice"> 
 </p>
 
 <p align="center">
-<img src="https://github.com/ashleytsmith/Phonon_band_structures_in_seconds_with_MATLAB/blob/main/Images/kagome_lattice_changing_field_2D_heatmap.gif" width="400" alt="heat map of the bands for kagome lattice"> 
+<img src="https://github.com/ashleytsmith/Analytical_phonon_band_structures/blob/main/Images/kagome_lattice_changing_field_2D_heatmap.gif" width="400" alt="heat map of the bands for kagome lattice"> 
 </p>
 
 Comments:
@@ -192,7 +192,7 @@ Many macroscopic physical effects can be captured by crossing of the bands in th
 
 
 
-# Extension ideas
+## Extension ideas
 
 A nice way to extend this project would be to do the calculation for another lattice, something like graphene which is known for having novel physical and chemical properties would be a great choice. The scripts for the solver and the dynamical matrix would need to be written and minor edits would need to be made to the plotting scripts.  Working out the force constant matrices would likely be the most difficult part because as it’s really easy to make a silly slip when you do it the first few times, luckily however this will often reflect itself in the solution indicating something needs to be changed.
 
